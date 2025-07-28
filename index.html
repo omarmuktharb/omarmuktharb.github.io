@@ -737,35 +737,25 @@
             });
 
             // Download CV functionality
-            // Download CV functionality
-            $('#downloadCV').click(function() {
+             $('#downloadCV').click(function(e) {
                 const button = $(this);
                 const originalText = button.html();
                 
+                // Show loading state
                 button.html('<span class="loading-spinner mr-2"></span>Preparing...');
-                button.prop('disabled', true);
+                button.addClass('pointer-events-none');
                 
-                // Create a temporary link to download the CV
-                const link = document.createElement('a');
-                link.href = 'Omar_Mukthar_CV.pdf';
-                link.download = 'Omar_Mukthar_CV.pdf';
-                link.style.display = 'none';
-                
-                // Add link to body and trigger download
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                // Show success message
+                // Show success message after a short delay
                 setTimeout(function() {
                     button.html('<i class="fas fa-check mr-2"></i>Downloaded!');
                     
                     setTimeout(function() {
                         button.html(originalText);
-                        button.prop('disabled', false);
+                        button.removeClass('pointer-events-none');
                     }, 2000);
                 }, 1000);
             });
+
 
             // Card hover effects
             $('.card-hover').hover(
