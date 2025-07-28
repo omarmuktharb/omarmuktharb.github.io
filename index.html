@@ -1,53 +1,265 @@
 <!DOCTYPE html>
-<!-- saved from url=(0039)https://omarmuktharb.github.io/#contact -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omar Mukthar – Talent Acquisition Leader</title>
-    <link rel="stylesheet" href="./Omar Mukthar – Talent Acquisition Leader_files/style.css">
+    
     <!-- Tailwind CSS CDN -->
-    <script src="./Omar Mukthar – Talent Acquisition Leader_files/saved_resource"></script>
-    <link href="./Omar Mukthar – Talent Acquisition Leader_files/css2" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f9fa;
+            scroll-behavior: smooth;
         }
+        
         .section-title {
             position: relative;
             display: inline-block;
             padding-bottom: 8px;
             margin-bottom: 2rem;
             font-weight: 600;
-            font-size: 1.875rem; /* text-3xl */
+            font-size: 1.875rem;
             color: #333;
         }
+        
         .section-title::after {
             content: '';
             position: absolute;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             bottom: 0;
             width: 60px;
             height: 4px;
-            background-color: #3b82f6; /* blue-500 */
-            border-radius: 9999px; /* rounded-full */
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            border-radius: 9999px;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #1d4ed8 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .skill-card:hover {
+            border-left-color: #3b82f6;
+            transform: translateX(5px);
+        }
+        
+        .highlight-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .highlight-card:hover::before {
+            left: 100%;
+        }
+        
+        .experience-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .experience-card:hover {
+            border-left-color: #3b82f6;
+            transform: translateX(5px);
+        }
+        
+        .navbar {
+            background: rgba(30, 64, 175, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: #1d4ed8;
+            transform: scale(1.1);
+        }
+        
+        .typing-effect {
+            overflow: hidden;
+            border-right: 2px solid #3b82f6;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #3b82f6; }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.mx-auto{margin-left:auto;margin-right:auto}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-12{margin-top:3rem}.flex{display:flex}.grid{display:grid}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-b-lg{border-bottom-right-radius:0.5rem;border-bottom-left-radius:0.5rem}.rounded-t-lg{border-top-left-radius:0.5rem;border-top-right-radius:0.5rem}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-800{--tw-gradient-from:#1e40af var(--tw-gradient-from-position);--tw-gradient-to:rgb(30 64 175 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-blue-600{--tw-gradient-to:#2563eb var(--tw-gradient-to-position)}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-4{padding-left:1rem;padding-right:1rem}.px-8{padding-left:2rem;padding-right:2rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.text-center{text-align:center}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-600:hover{--tw-bg-opacity:1;background-color:rgb(75 85 99 / var(--tw-bg-opacity, 1))}.hover\:bg-green-600:hover{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.sm\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * var(--tw-space-y-reverse))}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 768px){.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style></head>
+</head>
 <body class="antialiased">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar fixed top-0 w-full z-50 py-4 px-6 lg:px-8" id="navbar">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="text-white font-bold text-xl">OM</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-white hover:text-blue-200 transition duration-300 nav-link">About</a>
+                <a href="#experience" class="text-white hover:text-blue-200 transition duration-300 nav-link">Experience</a>
+                <a href="#skills" class="text-white hover:text-blue-200 transition duration-300 nav-link">Skills</a>
+                <a href="#highlights" class="text-white hover:text-blue-200 transition duration-300 nav-link">Highlights</a>
+                <a href="#contact" class="text-white hover:text-blue-200 transition duration-300 nav-link">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-white" id="mobileMenuBtn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobileMenu">
+            <div class="bg-white mt-4 rounded-lg shadow-lg py-4">
+                <a href="#about" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 transition duration-300">About</a>
+                <a href="#experience" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 transition duration-300">Experience</a>
+                <a href="#skills" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 transition duration-300">Skills</a>
+                <a href="#highlights" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 transition duration-300">Highlights</a>
+                <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Header Section -->
-    <header class="bg-gradient-to-r from-blue-800 to-blue-600 text-white py-16 px-4 sm:px-6 lg:px-8 shadow-lg rounded-b-lg">
+    <header class="gradient-bg text-white py-24 px-4 sm:px-6 lg:px-8 shadow-lg rounded-b-lg mt-16">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl sm:text-5xl font-bold mb-2">Omar Mukthar</h1>
-            <p class="text-lg sm:text-xl font-light mb-8">Results-driven talent acquisition professional with 13+ years of global experience in executive, tech, and high-volume recruitment across the US, India, Germany, Japan, and the Middle East.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="https://omarmuktharb.github.io/#contact" class="bg-white text-blue-700 font-semibold py-3 px-8 rounded-full shadow-md hover:bg-gray-100 transition duration-300">
-                    Let's Connect
+            <h1 class="text-4xl sm:text-6xl font-bold mb-4 typing-effect" data-aos="fade-down">
+                Omar Mukthar
+            </h1>
+            <p class="text-xl sm:text-2xl font-light mb-8 text-blue-100" data-aos="fade-up" data-aos-delay="200">
+                Talent Acquisition Leader
+            </p>
+            <p class="text-lg sm:text-xl font-light mb-12 text-blue-100 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+                Results-driven talent acquisition professional with 13+ years of global experience in executive, tech, and high-volume recruitment across the US, India, Germany, Japan, and the Middle East.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-up" data-aos-delay="600">
+                <a href="#contact" class="bg-white text-blue-700 font-semibold py-4 px-8 rounded-full shadow-lg hover:bg-blue-50 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-envelope mr-2"></i>Let's Connect
                 </a>
-                <a href="https://omarmuktharb.github.io/#" class="bg-blue-500 text-white font-semibold py-3 px-8 rounded-full shadow-md hover:bg-green-600 transition duration-300">
-                    Download CV
+                <a href="#experience" class="bg-blue-600 text-white font-semibold py-4 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-briefcase mr-2"></i>View Experience
                 </a>
+                <button id="downloadCV" class="bg-green-600 text-white font-semibold py-4 px-8 rounded-full shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i>Download CV
+                </button>
             </div>
         </div>
     </header>
@@ -55,56 +267,73 @@
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
         <!-- About Me Section -->
-        <section id="about" class="mb-16 bg-white p-8 rounded-lg shadow-md">
+        <section id="about" class="mb-16 bg-white p-8 rounded-lg shadow-lg card-hover" data-aos="fade-up">
             <h2 class="section-title text-center mx-auto mb-8">About Me</h2>
-            <p class="text-gray-700 leading-relaxed mb-8 text-center max-w-2xl mx-auto">
+            <p class="text-gray-700 leading-relaxed mb-12 text-center max-w-3xl mx-auto text-lg">
                 I specialize in transforming hiring strategies to align with business growth, leadership succession, and global workforce planning. I've led teams, built scalable TA functions, implemented AI-driven tools, and filled mission-critical roles across domains like AIoT, embedded systems, semiconductors, mobility, and enterprise tech.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <p class="text-4xl font-bold text-blue-700">13+</p>
-                    <p class="text-lg text-gray-600">Years Global Experience</p>
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg shadow-md card-hover">
+                    <div class="counter" data-target="13">0</div>
+                    <p class="text-lg text-gray-600 mt-2">Years Global Experience</p>
                 </div>
-                    <p class="text-4xl font-bold text-blue-700">5</p>
-                    <p class="text-4xl font-bold text-blue-700">Countries</p>
-                    <p class="text-lg text-gray-600">US, India, Germany, Japan, Middle East</p>
-                
-                    <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                    <p class="text-4xl font-bold text-blue-700">Leadership</p>
-                    <p class="text-lg text-gray-600">Executive &amp; Tech Recruitment</p>
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg shadow-md card-hover">
+                    <div class="counter" data-target="5">0</div>
+                    <p class="text-lg text-gray-600 mt-2">Countries</p>
+                    <p class="text-sm text-gray-500">US, India, Germany, Japan, Middle East</p>
                 </div>
-            
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg shadow-md card-hover">
+                    <div class="text-4xl font-bold text-purple-700 mb-2">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <p class="text-lg text-gray-600">Leadership</p>
+                    <p class="text-sm text-gray-500">Executive & Tech Recruitment</p>
+                </div>
+            </div>
         </section>
 
         <!-- Professional Experience Section -->
         <section id="experience" class="mb-16">
-            <h2 class="section-title text-center mx-auto mb-8">Professional Experience</h2>
+            <h2 class="section-title text-center mx-auto mb-12">Professional Experience</h2>
 
             <!-- Experience Item 1 -->
-            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                <div class="flex justify-between items-start mb-2">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Freelance Talent Acquisition Consultant &amp; Professional Development</h3>
-                        <p class="text-blue-600 text-md">Independent Consultant</p>
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8 experience-card" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row justify-between items-start mb-4">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-user-tie text-blue-600 mr-3"></i>
+                            Freelance Talent Acquisition Consultant & Professional Development
+                        </h3>
+                        <p class="text-blue-600 text-lg font-medium">Independent Consultant</p>
                     </div>
-                    <span class="text-gray-500 text-sm">Jun 2024 - Present Global/Remote</span>
+                    <div class="text-right mt-4 lg:mt-0">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Jun 2024 - Present</span>
+                        <p class="text-gray-500 text-sm mt-1">Global/Remote</p>
+                    </div>
                 </div>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg">
                     <li>Supporting small and mid-sized companies with customized recruitment strategies, sourcing methods, and hiring process improvements.</li>
-                    <li> Actively pursuing certifications in AI, GenAI, DEI, and leadership to enhance recruiting effectiveness and stay current with industry trendsn tools, and filled mission-.</li>
+                    <li>Actively pursuing certifications in AI, GenAI, DEI, and leadership to enhance recruiting effectiveness and stay current with industry trends.</li>
                     <li>Upskilling in sourcing automation, workforce planning, and market intelligence while engaging with the broader talent acquisition community.</li>
                 </ul>
             </div>
 
             <!-- Experience Item 2 -->
-            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                <div class="flex justify-between items-start mb-2">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Assistant Manager – Talent Acquisition</h3>
-                        <p class="text-blue-600 text-md">Bosch Global Software Technologiesare Technologies</p>
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8 experience-card" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row justify-between items-start mb-4">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-building text-blue-600 mr-3"></i>
+                            Assistant Manager – Talent Acquisition
+                        </h3>
+                        <p class="text-blue-600 text-lg font-medium">Bosch Global Software Technologies</p>
                     </div>
-                    <span class="text-gray-500 text-sm">Sep 2022 - June 2024</span>
+                    <div class="text-right mt-4 lg:mt-0">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Sep 2022 - Jun 2024</span>
+                        <p class="text-gray-500 text-sm mt-1">India, Germany, Japan, Middle East</p>
+                    </div>
                 </div>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg">
                     <li>Delivered executive hiring for AIoT, Edge AI, embedded, and SAP roles</li>
                     <li>Built global leadership pipelines aligned with Bosch's transformation goals</li>
                     <li>Used GenAI tools to streamline sourcing, cutting time-to-hire by 20%</li>
@@ -114,33 +343,44 @@
             </div>
 
             <!-- Experience Item 3 -->
-            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                <div class="flex justify-between items-start mb-2">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Associate Manager – Talent Acquisition</h3>
-                        <p class="text-blue-600 text-md">KPIT</p>
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8 experience-card" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row justify-between items-start mb-4">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-users text-blue-600 mr-3"></i>
+                            Associate Manager – Talent Acquisition
+                        </h3>
+                        <p class="text-blue-600 text-lg font-medium">KPIT</p>
                     </div>
-                    <span class="text-gray-500 text-sm">Dec 2021 - Aug 2022</span>
+                    <div class="text-right mt-4 lg:mt-0">
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Dec 2021 - Aug 2022</span>
+                        <p class="text-gray-500 text-sm mt-1">India, US</p>
+                    </div>
                 </div>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    
+                <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg">
                     <li>Partnered with HRBPs to hire for SDVs, AI, electric mobility, and embedded roles</li>
                     <li>Managed a team of 5 recruiters, improved recruiter productivity and SLA delivery</li>
                     <li>Increased diverse hiring in senior roles by 20% through inclusive strategies</li>
-                    <li>Led US and India campus campaigns with 40+ hires in 6 months</li>                    
+                    <li>Led US and India campus campaigns with 40+ hires in 6 months</li>
                 </ul>
             </div>
 
             <!-- Experience Item 4 -->
-            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                <div class="flex justify-between items-start mb-2">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Sourcing Specialist – Leadership Hiring</h3>
-                        <p class="text-blue-600 text-md">Akkodis (formerly Akka Technologies)</p>
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8 experience-card" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row justify-between items-start mb-4">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-search text-blue-600 mr-3"></i>
+                            Sourcing Specialist – Leadership Hiring
+                        </h3>
+                        <p class="text-blue-600 text-lg font-medium">Akkodis (formerly Akka Technologies)</p>
                     </div>
-                    <span class="text-gray-500 text-sm">Feb 2021 - Dec 2021</span>
+                    <div class="text-right mt-4 lg:mt-0">
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">Feb 2021 - Dec 2021</span>
+                        <p class="text-gray-500 text-sm mt-1">Global</p>
+                    </div>
                 </div>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg">
                     <li>Executed targeted outreach for aerospace, energy, and digital engineering domains</li>
                     <li>Reduced sourcing cycle for leadership roles by ~15% through talent mapping</li>
                     <li>Partnered with global COEs on market-aligned sourcing strategies</li>
@@ -148,32 +388,44 @@
             </div>
 
             <!-- Experience Item 5 -->
-            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                <div class="flex justify-between items-start mb-2">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Recruitment Lead – US &amp; Global Markets</h3>
-                        <p class="text-blue-600 text-md">Employvision / Reflik</p>
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8 experience-card" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row justify-between items-start mb-4">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-globe text-blue-600 mr-3"></i>
+                            Recruitment Lead – US & Global Markets
+                        </h3>
+                        <p class="text-blue-600 text-lg font-medium">Employvision / Reflik</p>
                     </div>
-                    <span class="text-gray-500 text-sm">Apr 2017 - Apr 2020</span>
+                    <div class="text-right mt-4 lg:mt-0">
+                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Apr 2017 - Apr 2020</span>
+                        <p class="text-gray-500 text-sm mt-1">Remote</p>
+                    </div>
                 </div>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg">
                     <li>Led full-cycle hiring for leadership and niche roles in product and consulting firms</li>
                     <li>Increased direct sourcing by 30%, reducing client costs and agency dependence</li>
                     <li>Built a high-performing team, earned 'Recruiter of the Quarter' recognition</li>
-                    <li> Specialized in US market hiring using Reflik's crowd-staffing model</li>
+                    <li>Specialized in US market hiring using Reflik's crowd-staffing model</li>
                 </ul>
             </div>
 
             <!-- Experience Item 6 -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="flex justify-between items-start mb-2">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Recruitment Lead</h3>
-                        <p class="text-blue-600 text-md">InnoValus Technologies</p>
+            <div class="bg-white p-8 rounded-lg shadow-lg experience-card" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row justify-between items-start mb-4">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-chart-line text-blue-600 mr-3"></i>
+                            Recruitment Lead
+                        </h3>
+                        <p class="text-blue-600 text-lg font-medium">InnoValus Technologies</p>
                     </div>
-                    <span class="text-gray-500 text-sm">Nov 2011 - April 2017</span>
+                    <div class="text-right mt-4 lg:mt-0">
+                        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Nov 2011 - Mar 2017</span>
+                        <p class="text-gray-500 text-sm mt-1">India</p>
+                    </div>
                 </div>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg">
                     <li>Managed high-volume and leadership hiring for clients like Wipro and Cognizant</li>
                     <li>Delivered 60–70 closures/quarter under tight deadlines</li>
                     <li>Reduced onboarding dropouts by 20% through better screening and alignment</li>
@@ -184,50 +436,125 @@
 
         <!-- Core Skills Section -->
         <section id="skills" class="mb-16">
-            <h2 class="section-title text-center mx-auto mb-8">Core Skills</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <h2 class="section-title text-center mx-auto mb-12">Core Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Skill Category 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Recruitment Specializations</h3>
-                    <ul class="text-gray-700 text-sm space-y-1">
-                        <li>• Executive &amp; Leadership Hiring (VP/CXO/Niche Tech)</li>
-                        <li>• Talent Mapping &amp; Succession Planning</li>
-                        <li>• Strategic Pipelining</li>
-                        <li>DEI &amp; Inclusive Recruitment</li>
-                        <li>High-Volume Recruitment</li>
+                <div class="bg-white p-8 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-user-tie text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Recruitment Specializations</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Executive & Leadership Hiring (VP/CXO/Niche Tech)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Talent Mapping & Succession Planning
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Strategic Pipelining
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            DEI & Inclusive Recruitment
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            High-Volume Recruitment
+                        </li>
                     </ul>
                 </div>
+                
                 <!-- Skill Category 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Markets &amp; Domains</h3>
-                    <ul class="text-gray-700 text-sm space-y-1">
-                        <li>• Global Markets – US, EU, APAC, GCC</li>
-                        <li>• AIoT &amp; Embedded Systems</li>
-                        <li>• Enterprise Tech &amp; SAP</li>
-                        <li>• Semiconductors &amp; Mobility</li>
-                        <li>• Digital Engineering</li>
+                <div class="bg-white p-8 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-globe text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Markets & Domains</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Global Markets – US, EU, APAC, GCC
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            AIoT & Embedded Systems
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Enterprise Tech & SAP
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Semiconductors & Mobility
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Digital Engineering
+                        </li>
                     </ul>
                 </div>
+                
                 <!-- Skill Category 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Leadership &amp; Strategy</h3>
-                    <ul class="text-gray-700 text-sm space-y-1">
-                        <li>• Employer Branding &amp; Candidate Experience</li>
-                        <li>• Recruitment Analytics &amp; KPI Dashboards</li>
-                        <li>• Team Leadership &amp; Development</li>
-                        <li>• Team Leadership &amp; Development</li>
-                        <li>• Market Intelligence</li>
+                <div class="bg-white p-8 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-lightbulb text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Leadership & Strategy</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Employer Branding & Candidate Experience
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Recruitment Analytics & KPI Dashboards
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Team Leadership & Development
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Market Intelligence
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Strategic Planning
+                        </li>
                     </ul>
                 </div>
+                
                 <!-- Skill Category 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Tools &amp; Technologies</h3>
-                    <ul class="text-gray-700 text-sm space-y-1">
-                        <li>• ATS Tools – Greenhouse, Workday, SAP, Taleo</li>
-                        <li>• SmartRecruiters</li>
-                        <li>• Advanced Sourcing – LinkedIn Recruiter, Boolean, X-Ray</li>
-                        <li>• AI in Recruitment | GenAI</li>
-                        <li>• Automation Workflows</li>
+                <div class="bg-white p-8 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-tools text-4xl text-orange-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Tools & Technologies</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            ATS Tools – Greenhouse, Workday, SAP, Taleo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            SmartRecruiters
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Advanced Sourcing – LinkedIn Recruiter, Boolean, X-Ray
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            AI in Recruitment | GenAI
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Automation Workflows
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -235,59 +562,284 @@
 
         <!-- Key Highlights Section -->
         <section id="highlights" class="mb-16">
-            <h2 class="section-title text-center mx-auto mb-8">Key Highlights</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 class="section-title text-center mx-auto mb-12">Key Highlights</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Highlight Item 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <p class="text-4xl font-bold text-blue-700 mb-2">25-30% Improvement</p>
-                    <p class="text-lg text-gray-600">Improved time-to-hire through proactive talent pipelines</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center highlight-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-5xl font-bold text-blue-700 mb-4">25-30%</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Improvement</h3>
+                    <p class="text-gray-600">Improved time-to-hire through proactive talent pipelines</p>
                 </div>
+                
                 <!-- Highlight Item 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <p class="text-4xl font-bold text-blue-700 mb-2">Cost Savings</p>
-                    <p class="text-lg text-gray-600">Saved costs by reducing agency dependence and improving direct sourcing</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center highlight-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-5xl font-bold text-green-700 mb-4">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Cost Savings</h3>
+                    <p class="text-gray-600">Saved costs by reducing agency dependence and improving direct sourcing</p>
                 </div>
+                
                 <!-- Highlight Item 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <p class="text-4xl font-bold text-blue-700 mb-2">20% GenAI Impact</p>
-                    <p class="text-lg text-gray-600">Cutting time-to-hire by 20% using GenAI tools and automation</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center highlight-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-5xl font-bold text-red-700 mb-4">20%</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">GenAI Impact</h3>
+                    <p class="text-gray-600">Cutting time-to-hire by 20% using GenAI tools and automation</p>
                 </div>
+                
                 <!-- Highlight Item 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <p class="text-4xl font-bold text-blue-700 mb-2">40+ Campus Hires</p>
-                    <p class="text-lg text-gray-600">Successfully led US and India campus campaigns in 6 months</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center highlight-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-5xl font-bold text-purple-700 mb-4">40+</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Campus Hires</h3>
+                    <p class="text-gray-600">Successfully led US and India campus campaigns in 6 months</p>
                 </div>
+                
                 <!-- Highlight Item 5 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <p class="text-4xl font-bold text-blue-700 mb-2">Global Leadership</p>
-                    <p class="text-lg text-gray-600">Built succession-based leadership pipelines across 5 countries</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center highlight-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="text-5xl font-bold text-indigo-700 mb-4">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Global Leadership</h3>
+                    <p class="text-gray-600">Built succession-based leadership pipelines across 5 countries</p>
                 </div>
+                
                 <!-- Highlight Item 6 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <p class="text-4xl font-bold text-blue-700 mb-2">Team Excellence</p>
-                    <p class="text-lg text-gray-600">Earned 'Recruiter of the Quarter' recognition for high-performing team building</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center highlight-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="text-5xl font-bold text-orange-700 mb-4">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Team Excellence</h3>
+                    <p class="text-gray-600">Earned 'Recruiter of the Quarter' recognition for high-performing team building</p>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer Section -->
-    <footer id="contact" class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8 rounded-t-lg">
+    <footer id="contact" class="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8 rounded-t-lg">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
-            <p class="text-gray-400 mb-8">Ready to discuss talent acquisition strategies or explore collaboration opportunities?</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="mailto:omarmukthar2324@gmail.com" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-md hover:bg-blue-700 transition duration-300">
-                    Email Me
+            <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Let's Connect</h2>
+            <p class="text-gray-400 mb-12 text-lg max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Ready to discuss talent acquisition strategies or explore collaboration opportunities?
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12" data-aos="fade-up" data-aos-delay="400">
+                <a href="mailto:omarmukthar2324@gmail.com" class="bg-blue-600 text-white font-semibold py-4 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-envelope mr-2"></i>Email Me
                 </a>
-                <a href="https://www.linkedin.com/in/omarmuktharb/" target="_blank" rel="noopener noreferrer" class="bg-gray-700 text-white font-semibold py-3 px-8 rounded-full shadow-md hover:bg-gray-600 transition duration-300">
-                    LinkedIn
+                <a href="https://www.linkedin.com/in/omarmuktharb/" target="_blank" rel="noopener noreferrer" class="bg-gray-700 text-white font-semibold py-4 px-8 rounded-full shadow-lg hover:bg-gray-600 transition duration-300 transform hover:scale-105">
+                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
                 </a>
             </div>
-            <p class="mt-12 text-gray-500 text-sm">© 2025 Omar Mukthar. All rights reserved.</p>
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-gray-500 text-sm">© 2025 Omar Mukthar. All rights reserved. | Made with <i class="fas fa-heart text-red-500"></i> and <i class="fas fa-coffee text-yellow-500"></i></p>
+            </div>
         </div>
     </footer>
 
+    <!-- jQuery Scripts -->
+    <script>
+        $(document).ready(function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
 
+            // Smooth scrolling for navigation links
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                const target = $(this.getAttribute('href'));
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1000);
+                }
+            });
 
-</body></html>
+            // Scroll progress bar
+            $(window).scroll(function() {
+                const scrollTop = $(window).scrollTop();
+                const docHeight = $(document).height() - $(window).height();
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                $('#scrollProgress').css('width', scrollPercent + '%');
+            });
+
+            // Back to top button
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 300) {
+                    $('#backToTop').addClass('show');
+                } else {
+                    $('#backToTop').removeClass('show');
+                }
+            });
+
+            $('#backToTop').click(function() {
+                $('html, body').animate({scrollTop: 0}, 800);
+            });
+
+            // Mobile menu toggle
+            $('#mobileMenuBtn').click(function() {
+                $('#mobileMenu').toggleClass('hidden');
+            });
+
+            // Close mobile menu when clicking on links
+            $('#mobileMenu a').click(function() {
+                $('#mobileMenu').addClass('hidden');
+            });
+
+            // Navbar background on scroll
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#navbar').addClass('bg-gray-900');
+                } else {
+                    $('#navbar').removeClass('bg-gray-900');
+                }
+            });
+
+            // Counter animation
+            function animateCounter(element) {
+                const target = parseInt($(element).data('target'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(function() {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    $(element).text(Math.floor(current) + '+');
+                }, 16);
+            }
+
+            // Trigger counter animation when in view
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target.querySelector('.counter');
+                        if (counter && !counter.classList.contains('animated')) {
+                            counter.classList.add('animated');
+                            animateCounter(counter);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            $('.counter').each(function() {
+                observer.observe(this.parentElement);
+            });
+
+            // Download CV functionality
+            $('#downloadCV').click(function() {
+                const button = $(this);
+                const originalText = button.html();
+                
+                button.html('<span class="loading-spinner mr-2"></span>Preparing...');
+                button.prop('disabled', true);
+                
+                // Simulate download process
+                setTimeout(function() {
+                    button.html('<i class="fas fa-check mr-2"></i>Downloaded!');
+                    
+                    setTimeout(function() {
+                        button.html(originalText);
+                        button.prop('disabled', false);
+                    }, 2000);
+                }, 2000);
+            });
+
+            // Card hover effects
+            $('.card-hover').hover(
+                function() {
+                    $(this).addClass('transform scale-105');
+                },
+                function() {
+                    $(this).removeClass('transform scale-105');
+                }
+            );
+
+            // Typing effect for header
+            setTimeout(function() {
+                $('.typing-effect').addClass('typing-effect');
+            }, 500);
+
+            // Fade in elements on scroll
+            function fadeInElements() {
+                $('.fade-in').each(function() {
+                    const elementTop = $(this).offset().top;
+                    const elementBottom = elementTop + $(this).outerHeight();
+                    const viewportTop = $(window).scrollTop();
+                    const viewportBottom = viewportTop + $(window).height();
+                    
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).addClass('show');
+                    }
+                });
+            }
+
+            $(window).scroll(fadeInElements);
+            fadeInElements();
+
+            // Add loading animation to buttons
+            $('a, button').click(function() {
+                if (!$(this).hasClass('no-loading')) {
+                    $(this).addClass('transform scale-95');
+                    setTimeout(() => {
+                        $(this).removeClass('transform scale-95');
+                    }, 150);
+                }
+            });
+
+            // Parallax effect for header
+            $(window).scroll(function() {
+                const scrolled = $(window).scrollTop();
+                const parallax = $('header');
+                const speed = scrolled * 0.5;
+                parallax.css('transform', 'translateY(' + speed + 'px)');
+            });
+
+            // Add active class to navigation links
+            $(window).scroll(function() {
+                const scrollDistance = $(window).scrollTop();
+                
+                $('section').each(function(i) {
+                    if ($(this).position().top <= scrollDistance + 100) {
+                        $('.nav-link.active').removeClass('active');
+                        $('.nav-link').eq(i).addClass('active');
+                    }
+                });
+            });
+
+            // Initialize tooltips
+            $('[data-tooltip]').hover(
+                function() {
+                    const tooltip = $('<div class="tooltip">' + $(this).data('tooltip') + '</div>');
+                    $('body').append(tooltip);
+                    const pos = $(this).offset();
+                    tooltip.css({
+                        position: 'absolute',
+                        top: pos.top - 40,
+                        left: pos.left + ($(this).width() / 2) - (tooltip.width() / 2),
+                        background: '#333',
+                        color: '#fff',
+                        padding: '5px 10px',
+                        borderRadius: '4px',
+                        fontSize: '12px',
+                        zIndex: 1000
+                    });
+                },
+                function() {
+                    $('.tooltip').remove();
+                }
+            );
+        });
+    </script>
+</body>
+</html>
